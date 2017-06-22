@@ -1,5 +1,5 @@
 '''
-Sample linear regression implementation
+Linear Regression with one variable
 Predict Flight prices given the distance covered by the flight.
 '''
 
@@ -41,8 +41,9 @@ theta_1 = tf.Variable(1.0)
 # hypothesis (The Model) 
 h = theta_0 + theta_1*x 
 
-# Model after taking care of Feature scaling and mean normalization - we'll use this for plotting and final prediction
-h_data =  ( (theta_0 + theta_1*x)*(np.max(y_data) - np.min(y_data)) ) + np.mean(y_data) 
+# Model after taking care of Feature scaling and mean normalization 
+# we'll use this for plotting and final prediction
+h_data =  ( h*(np.max(y_data) - np.min(y_data)) ) + np.mean(y_data) 
 
 # Cost Function
 cost_function = (1/2)*tf.reduce_mean(tf.square(h-y))
